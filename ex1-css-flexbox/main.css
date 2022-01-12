@@ -1,0 +1,62 @@
+.firstBoxRow{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    margin-bottom: 20px;
+
+}
+.box1{
+    background-color: red;
+    width: 6rem;
+    /* line-height: 100px; */
+    font-weight: bold;
+    font-size: 1em;
+    padding: 20px;
+    margin: 5px;
+    text-align: left;
+}
+.secondBoxRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.thirdBoxRow{
+    display: flex;
+    flex-direction: row;
+}
+.blueBox{
+    background-color: blue;
+    width: 16.6%;
+    /* line-height: 100px; */
+    font-weight: bold;
+    font-size: 1em;
+    padding: 20px;
+    margin: 5px;
+    text-align: left;
+}
+.redBoxes{
+    background-color: red;
+    /* line-height: 100px; */
+    font-weight: bold;
+    font-size: 1em;
+    padding: 20px;
+    margin: 5px;
+    text-align: left;
+}
+.lastBoxRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.width1{
+width: 33%;
+}
+.width2{
+width: 15%;
+}
+.width3{
+    width: 24%;
+}
+
