@@ -1,0 +1,33 @@
+.container{
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #7fffd4;
+}
+.formContainer{
+    padding: 4rem;
+    margin: 0 auto;
+    width: 30%;
+    margin: auto;
+
+}
+.h1{
+    text-align: center;
+}
+.labelText{
+    display:block;
+    line-height: 1.8;
+    font-weight: bold;
+}
+.input{
+    float: right;
+    width: 45%;
+}
+.button{
+    margin-top: 35px;
+    text-align: center;
+    
+}
+.button * {
+    margin:5px;
+}
+
