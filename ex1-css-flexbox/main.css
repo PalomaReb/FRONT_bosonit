@@ -34,6 +34,7 @@
     font-size: 1em;
     padding: 20px;
     margin: 5px;
+    height: 40px;
     text-align: left;
 }
 .redBoxes{
@@ -51,7 +52,7 @@
     justify-content: right;
 }
 .width1{
-width: 33%;
+width: 30%;
 }
 .width2{
 width: 15%;
