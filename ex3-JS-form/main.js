@@ -7,15 +7,15 @@ fetch('http://localhost:8080/person') // method por defecto es get
   .then((d) => {
       console.log(d)
       if (d.length > 0) {
-    document.getElementById('name').value = d[0].user
-    document.getElementById('lastName').value = d[0].surname
-    document.getElementById('comp_email').value = d[0].company_email
+    document.getElementById('name').value = d[0].name
+    document.getElementById('lastName').value = d[0].lastName
+    document.getElementById('comp_email').value = d[0].comp_email
     document.getElementById('personal_email').value = d[0].personal_email
     document.getElementById('city').value = d[0].city
-    document.getElementById('image_url').value = d[0].imagen_url
+    document.getElementById('image_url').value = d[0].image_url
     document.getElementById('creation_date').value = d[0].created_date
     document.getElementById('active').value = d[0].active
-    document.getElementById('term_date').value = d[0].finish_date
+    document.getElementById('term_date').value = d[0].term_date
       }
   });
 
@@ -26,15 +26,15 @@ fetch('http://localhost:8080/person') // method por defecto es get
     mode:"cors",
     headers:{"Content-Type": "application/json"},
     body:JSON.stringify({
-      'Usuario': document.getElementById('name').value,
-      'Apellido': document.getElementById('lastName').value,
-      'Email de la compañia': document.getElementById('company_email').value,
-      'Email personal': document.getElementById('personal_email').value,
-      'Ciudad': document.getElementById('city').value,
-      'url imagen': document.getElementById('image_url').value,
-      'Fecha creacion': document.getElementById('creation_date').value,
-      'Activado': document.getElementById('active').value,
-      'Fecha fin': document.getElementById('term_date').value,
+      'name': document.getElementById('name').value,
+      'lastName': document.getElementById('lastName').value,
+      'comp_email': document.getElementById('company_email').value,
+      'personal_email': document.getElementById('personal_email').value,
+      'city': document.getElementById('city').value,
+      'image_url': document.getElementById('image_url').value,
+      'created_date': document.getElementById('creation_date').value,
+      'active': document.getElementById('active').value,
+      'term_date': document.getElementById('term_date').value,
     })  
 
 })
