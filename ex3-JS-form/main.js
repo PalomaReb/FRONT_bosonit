@@ -2,25 +2,23 @@ const formulario=document.getElementById('form');
 const body = document.body;
 
 
-fetch('http://localhost:8080/person') // method por defecto es get
-  .then((r) => r.json())
-  .then((d) => {
-      console.log(d)
-      if (d.length > 0) {
-    document.getElementById('name').value = d[0].name
-    document.getElementById('lastName').value = d[0].lastName
-    document.getElementById('comp_email').value = d[0].comp_email
-    document.getElementById('personal_email').value = d[0].personal_email
-    document.getElementById('city').value = d[0].city
-    document.getElementById('image_url').value = d[0].image_url
-    document.getElementById('creation_date').value = d[0].created_date
-    document.getElementById('active').value = d[0].active
-    document.getElementById('term_date').value = d[0].term_date
-      }
-  });
-
-  document.addEventListener('submit', ((e) => {
-      console.log(e)
+// fetch('http://localhost:8080/person') // method por defecto es get
+//   .then((r) => r.json())
+//   .then((d) => {
+//       if (d.length > 0) {
+//     document.getElementById('name').value = d[0].name
+//     document.getElementById('lastName').value = d[0].lastName
+//     document.getElementById('comp_email').value = d[0].comp_email
+//     document.getElementById('personal_email').value = d[0].personal_email
+//     document.getElementById('city').value = d[0].city
+//     document.getElementById('image_url').value = d[0].image_url
+//     document.getElementById('creation_date').value = d[0].created_date
+//     document.getElementById('active').value = d[0].active
+//     document.getElementById('term_date').value = d[0].term_date
+//       }
+//   });
+function click(){
+  //document.addEventListener('submit', ((e) => {
     fetch('http://localhost:8080/addperson',{
     method:'post',
     mode:"cors",
@@ -38,7 +36,5 @@ fetch('http://localhost:8080/person') // method por defecto es get
     })  
 
 })
-.then((r)=> r.json())
-.then(e.preventDefault())
-document.getElementById('form').reset();
-  }))
+.then((r)=> console.log(r))
+  }
