@@ -10,7 +10,7 @@ function removeStartZero(){
     }
 }
 
-function display(value:any){
+function display(value:string){
     removeStartZero();
     document.getElementById('result').innerHTML += value;
 
