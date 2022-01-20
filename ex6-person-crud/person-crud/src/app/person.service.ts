@@ -25,7 +25,7 @@ export class PersonService {
     this.messageService.add(`PersonService: ${message}`);
   }
 
-
+//get
   getPerson():Observable<Person[]>{
     return this.http.get<Person[]>(this.personUrl).pipe(
       tap(_ => this.log('got persons')),
@@ -33,7 +33,7 @@ export class PersonService {
     );
 
   }
-
+//get by id
   getPersonID(id: number): Observable<Person> {
     const url = `${this.personUrl}/${id}`;
     return this.http.get<Person>(url).pipe(
@@ -42,6 +42,7 @@ export class PersonService {
     );
   }
 
+  // add(post) new person
   addPerson(person: Person): Observable<Person> {
     return this.http.post<Person>(this.personUrl, person, this.httpOptions).pipe(
       tap((newPerson: Person) => this.log(`added person w/ id=${newPerson.id}`)),
@@ -66,7 +67,7 @@ updateHero(person: Person): Observable<any> {
     catchError(this.handleError<any>('update person'))
   );
 }
-
+// search by name of person
 searchHeroes(term: string): Observable<Person[]> {
   if (!term.trim()) {
     return of([]);
@@ -78,9 +79,6 @@ searchHeroes(term: string): Observable<Person[]> {
     catchError(this.handleError<Person[]>('search Person', []))
   );
 }
-
-
-
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
