@@ -33,6 +33,54 @@ export class PersonService {
     );
 
   }
+
+  getPersonID(id: number): Observable<Person> {
+    const url = `${this.personUrl}/${id}`;
+    return this.http.get<Person>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Person>(`getHero id=${id}`))
+    );
+  }
+
+  addPerson(person: Person): Observable<Person> {
+    return this.http.post<Person>(this.personUrl, person, this.httpOptions).pipe(
+      tap((newPerson: Person) => this.log(`added person w/ id=${newPerson.id}`)),
+      catchError(this.handleError<Person>('add person'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deletePerson(id: number): Observable<Person> {
+    const url = `${this.personUrl}/${id}`;
+
+    return this.http.delete<Person>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted person id=${id}`)),
+      catchError(this.handleError<Person>('delete person'))
+    );
+  }
+
+/** PUT: update the hero on the server */
+updateHero(person: Person): Observable<any> {
+  return this.http.put(this.personUrl, person, this.httpOptions).pipe(
+    tap(_ => this.log(`updated person id=${person.id}`)),
+    catchError(this.handleError<any>('update person'))
+  );
+}
+
+searchHeroes(term: string): Observable<Person[]> {
+  if (!term.trim()) {
+    return of([]);
+  }
+  return this.http.get<Person[]>(`${this.personUrl}/?name=${term}`).pipe(
+    tap(x => x.length ?
+       this.log(`found person matching "${term}"`) :
+       this.log(`no person matching "${term}"`)),
+    catchError(this.handleError<Person[]>('search Person', []))
+  );
+}
+
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
