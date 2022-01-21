@@ -61,14 +61,14 @@ export class PersonService {
   }
 
 /** PUT: update the hero on the server */
-updateHero(person: Person): Observable<any> {
+updatePerson(person: Person): Observable<any> {
   return this.http.put(this.personUrl, person, this.httpOptions).pipe(
     tap(_ => this.log(`updated person id=${person.id}`)),
     catchError(this.handleError<any>('update person'))
   );
 }
 // search by name of person
-searchHeroes(term: string): Observable<Person[]> {
+searchPerson(term: string): Observable<Person[]> {
   if (!term.trim()) {
     return of([]);
   }
